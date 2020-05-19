@@ -1,0 +1,51 @@
+public Button yourButton;
+
+	void Start () {
+		Button btn = yourButton.GetComponent<Button>();
+		btn.onClick.AddListener(TaskOnClick);
+	}
+
+	void TaskOnClick(){
+		Debug.Log ("You have clicked the button!");
+	}
+	
+	
+public Material Material1;
+     //in the editor this is what you would set as the object you wan't to change
+     public GameObject Object;
+ 
+     void Start()
+     {
+          Object.GetComponent<MeshRenderer> ().material = Material1;
+     }
+	 
+m_YourThirdButton.onClick.AddListener(() => ButtonClicked(42));
+
+if (Input.touchCount > 0)
+{
+    Touch[] myTouches = Input.touches;
+    for(int i = 0; i < Input.touchCount; i++)
+    {
+        Touch myTouch = Input.GetTouch(i);
+ 
+        //Set start postition
+        if (myTouch.phase == TouchPhase.Began && !EventSystem.current.IsPointerOverGameObject(myTouch.fingerId))
+        {
+            //Left Thumb Stick
+            if (myTouch.position.x < Screen.width / 2)
+            {
+                leftTouchLocStart = new Vector2 (myTouch.position.x, myTouch.position.y);
+                thumbStick_L.transform.position = (leftTouchLocStart);
+                thumbStick_L.SetActive (true);
+            }
+ 
+            //Right Thumb Stick
+            if (myTouch.position.x > Screen.width / 2)
+            {
+                rightTouchLocStart = new Vector2 (myTouch.position.x, myTouch.position.y);
+                thumbStick_R.transform.position = (rightTouchLocStart);
+                thumbStick_R.SetActive (true);
+            }
+        }
+    }
+}
